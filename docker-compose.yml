@@ -1,0 +1,16 @@
+services:
+  api:
+    build: ./services
+    ports:
+      - "8000:8000"
+    restart: always
+
+  cst_mind:
+    build: ./MindAgent
+    depends_on:
+      - api
+    restart: always
+    environment:
+      - WEBSOCKET_URL=ws://api:8000/ws/cst_mind
+      - API_URL=http://api:8000
+    command: sh -c "sleep 5 && java -jar mente.jar"
