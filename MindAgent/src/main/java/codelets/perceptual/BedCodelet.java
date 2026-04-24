@@ -25,9 +25,9 @@ public class BedCodelet extends Codelet {
         if (pressure == null || vision == null) return;
 
         String contextoFinal;
-        if (pressure.equals("a") && vision.equals("acostada")) contextoFinal = "DURMIENDO";
-        else if ((pressure.equals("s1") || pressure.equals("s2")) && vision.equals("sentada")) contextoFinal = "SENTADO_CAMA_" + pressure;
-        else if (pressure.equals("v") && vision.equals("acostada")) contextoFinal = "ERROR_SENSOR_CAMA";
+        if (pressure.equals("A") && vision.equals("acostada")) contextoFinal = "DURMIENDO";
+        else if ((pressure.equals("S1") || pressure.equals("S2")) && vision.equals("sentada")) contextoFinal = "SENTADO_CAMA_" + pressure;
+        else if (pressure.equals("V") && vision.equals("acostada")) contextoFinal = "ERROR_SENSOR_CAMA";
         else contextoFinal = "CAMA_VACIA";
 
         bedContextMO.setI(contextoFinal);
