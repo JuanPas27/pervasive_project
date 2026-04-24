@@ -54,25 +54,24 @@
             console.log("Acción recibida de CST:", action);
 
             // Lógica para interpretar Java
-            
             // Sillas
             if (action.startsWith("luz_activa_")) {
-                const chairId = action.replace("luz_activa_S", "");
+                const chairId = action.replace("luz_activa_S", "silla_");
                 document.getElementById(chairId).classList.add("active-chair");
             } 
             else if (action.startsWith("luz_apaga_")) {
-                const chairId = action.replace("luz_apaga_S", "");
+                const chairId = action.replace("luz_apaga_S", "silla_");
                 document.getElementById(chairId).classList.remove("active-chair");
             }
             
             // Cama
             else if (action === "modo_nocturno_on") {
                 const cama = document.getElementById("cama");
-                cama.className = "device active-bed-sleep"; // Luz azul (durmiendo)
+                cama.className = "device active-bed-sleep"; // Luz azul
             } 
             else if (action === "luz_cortesia_on") {
                 const cama = document.getElementById("cama");
-                cama.className = "device active-bed-sit"; // Luz amarilla (sentado)
+                cama.className = "device active-bed-sit"; // Luz amarilla
             }
             else if (action === "luz_cama_off") {
                 document.getElementById("cama").className = "device"; 
