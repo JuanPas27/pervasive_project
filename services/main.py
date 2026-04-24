@@ -84,8 +84,14 @@ async def receive_bed(data: BedData):
 
 @app.post("/api/camera")
 async def receive_camera(data: CameraData):
+    print(data)
+    if "mesa" in data.cameraId:
+        tipo_camera = "table_cam"
+    else:
+        tipo_camera = "bed_cam"
+
     payload = json.dumps({
-        "type": "camera", # table_cam o bed_cam dependiendo del cameraId
+        "type": tipo_camera,
         "sensor_id": data.cameraId,
         "status": data.Parametros
     })
