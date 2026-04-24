@@ -39,7 +39,7 @@ public class ActionCodelet extends Codelet {
                 if (!status.equals(lastStatus)) {
                     if (status.equals("OCUPADA_CONFIRMADA")) {
                         triggerAction("luz_activa_" + chairId);
-                    } else if (status.equals("VACIA_CONFIRMADA")) {
+                    } else if (status.equals("VACIA_CONFIRMADA") || status.equals("VACIA_PRESENCIA_CERCANA")) {
                         triggerAction("luz_apaga_" + chairId);
                     }
                     lastChairStates.put(chairId, status);
