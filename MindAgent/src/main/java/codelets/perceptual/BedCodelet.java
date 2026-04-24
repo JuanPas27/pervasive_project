@@ -31,5 +31,7 @@ public class BedCodelet extends Codelet {
         else contextoFinal = "CAMA_VACIA";
 
         bedContextMO.setI(contextoFinal);
+
+        System.out.println("Mente - Estado detallado: " + contextoFinal);
     }
 }

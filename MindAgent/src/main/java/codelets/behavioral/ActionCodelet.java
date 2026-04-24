@@ -51,6 +51,7 @@ public class ActionCodelet extends Codelet {
         if (currentBed != null && !currentBed.equals(lastBedState)) {
             if (currentBed.equals("DURMIENDO")) triggerAction("modo_nocturno_on");
             else if (currentBed.startsWith("SENTADO")) triggerAction("luz_cortesia_on");
+            else triggerAction("luz_cama_off");
             lastBedState = currentBed;
         }
     }

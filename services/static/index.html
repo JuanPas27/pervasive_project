@@ -24,7 +24,7 @@
 
         /* Clases de activación */
         .active-chair { background-color: #e74c3c !important; border-color: #c0392b !important; box-shadow: 0 0 20px #e74c3c; color: white !important;}
-        .active-bed-sleep { background-color: #3498db !important; border-color: #2980b9 !important; box-shadow: 0 0 20px #3498db; color: white !important;}
+        .active-bed-sleep { background-color: #e74c3c !important; border-color: #c0392b !important; box-shadow: 0 0 20px #3498db; color: white !important;}
         .active-bed-sit { background-color: #f1c40f !important; border-color: #f39c12 !important; box-shadow: 0 0 20px #f1c40f; color: black !important;}
     </style>
 </head>
@@ -67,7 +67,7 @@
             // Cama
             else if (action === "modo_nocturno_on") {
                 const cama = document.getElementById("cama");
-                cama.className = "device active-bed-sleep"; // Luz azul
+                cama.className = "device active-bed-sleep"; // Luz roja
             } 
             else if (action === "luz_cortesia_on") {
                 const cama = document.getElementById("cama");
