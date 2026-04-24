@@ -56,12 +56,12 @@
             // Lógica para interpretar Java
             
             // Sillas
-            if (action.startsWith("luz_activa_silla_")) {
-                const chairId = action.replace("luz_activa_", "");
+            if (action.startsWith("luz_activa_")) {
+                const chairId = action.replace("luz_activa_S", "");
                 document.getElementById(chairId).classList.add("active-chair");
             } 
-            else if (action.startsWith("luz_apaga_silla_")) {
-                const chairId = action.replace("luz_apaga_", "");
+            else if (action.startsWith("luz_apaga_")) {
+                const chairId = action.replace("luz_apaga_S", "");
                 document.getElementById(chairId).classList.remove("active-chair");
             }
             
