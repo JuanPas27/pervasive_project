@@ -97,3 +97,28 @@ async def receive_camera(data: CameraData):
     })
     await manager.broadcast(payload)
     return {"status": "success", "msg": "Inferencia de cámara enviada a la mente"}
+
+
+# gestor de conexiones exclusivo para la página web
+ui_manager = ConnectionManager()
+
+# Endpoint para HTML
+@app.websocket("/ws/ui")
+async def websocket_ui_endpoint(websocket: WebSocket):
+    await ui_manager.connect(websocket)
+    try:
+        while True:
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        ui_manager.disconnect(websocket)
+
+# Actualizamos el endpoint de acciones para que le avise a la interfaz
+@app.post("/execute_action/{action}")
+async def execute_action(action: str):
+    print(f"ORDEN RECIBIDA DE LA MENTE: {action}")
+    
+    # Enviar formato JSON a la página web
+    payload = json.dumps({"action": action})
+    await ui_manager.broadcast(payload)
+    
+    return {"status": "success", "msg": f"Acción '{action}' ejecutada"}
