@@ -85,7 +85,7 @@ async def receive_bed(data: BedData):
 @app.post("/api/camera")
 async def receive_camera(data: CameraData):
     print(data)
-    if "mesa" in data.cameraId:
+    if "table" in data.cameraId:
         tipo_camera = "table_cam"
     else:
         tipo_camera = "bed_cam"
