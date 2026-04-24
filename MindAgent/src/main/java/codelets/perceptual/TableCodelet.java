@@ -38,6 +38,7 @@ public class TableCodelet extends Codelet {
         for (String chairId : pressureMap.keySet()) {
             String pressureStatus = pressureMap.get(chairId); // "o" u "v"
 
+            System.out.println(pressureStatus);
             if (pressureStatus.equals("O")) { // Presión es "o" (ocupada)
                 finalChairsStatus.put(chairId, visionDetectaPersona ? "OCUPADA_CONFIRMADA" : "ALERTA_FALSA_PRESION");
             } else { // Presión es "v" (vacío)
